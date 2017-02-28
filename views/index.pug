@@ -46,7 +46,7 @@ body
 					button(type="submit").btn.btn-default 
 						span.glyphicon.glyphicon-search
 				ul.nav.navbar-nav.navbar-right
-					li: a(href="#") Register
+					li: a(href="/register") Register
 					li: a(href="#") Login
 					li: a(href="/about/Bao") About
 		//- end nav bar
@@ -66,64 +66,21 @@ body
 					th
 			tbody
 				// Single line
-				tr
-					td
-						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
-					td
-						p Dòng 1
-						p Dòng 2
-					td
-						p 20K
-						p VIEWS
-					td(style='border-right:3px solid green')
-						p 20K
-						p COMMENTS
-					td 1
-				// Single line
-				// Single line
-				tr
-					td
-						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
-					td
-						p Dòng 1
-						p Dòng 2
-					td
-						p 20K
-						p VIEWS
-					td(style='border-right:3px solid green')
-						p 20K
-						p COMMENTS
-					td 1
-				// Single line
-				// Single line
-				tr
-					td
-						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
-					td
-						p Dòng 1
-						p Dòng 2
-					td
-						p 20K
-						p VIEWS
-					td(style='border-right:3px solid green')
-						p 20K
-						p COMMENTS
-					td 1
-				// Single line
-				// Single line
-				tr
-					td
-						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
-					td
-						p Dòng 1
-						p Dòng 2
-					td
-						p 20K
-						p VIEWS
-					td(style='border-right:3px solid green')
-						p 20K
-						p COMMENTS
-					td 1
+				if pList
+					each p in pList
+						tr
+							td
+								img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
+							td
+								p #{p.pTitle}
+								p #{p.pCreatedAt}
+							td
+								p(style="text-align:center") #{p.pViews}
+								p(style="text-align:center") VIEWS
+							td(style='border-right:3px solid green')
+								p 20K
+								p COMMENTS
+							td 1
 	//- End of main part
 	.col-xs-1.col-sm-1.col-md-1.col-lg-1
 
