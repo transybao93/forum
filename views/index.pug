@@ -1,0 +1,133 @@
+doctype
+<!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+head
+	title Testing Jade template
+	//- TODO: Check if it's the good charset
+	meta(charset="utf-8")
+	meta(http-equiv="X-UA-Compatible", content="IE=edge")
+	title 
+	meta(name="description", content="")
+	meta(name="viewport", content="width=device-width,initial-scale=1")
+	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
+	link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
+	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+	<!--[if lt IE 9]>
+	script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
+	<![endif]-->
+body
+	//- Add your site or application content here
+	.col-xs-1.col-sm-1.col-md-1.col-lg-1
+	//- Main part here
+	.col-xs-10.col-sm-10.col-md-10.col-lg-10
+		//- nav bar
+		nav(role="navigation", style='border-radius:0').navbar.navbar-default
+			.navbar-header
+				button(type="button", data-toggle="collapse", data-target=".navbar-ex1-collapse").navbar-toggle.collapsed
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a(href="#" ).navbar-brand BaoJS.vn
+			.collapse.navbar-collapse.navbar-ex1-collapse
+				ul.nav.navbar-nav 
+					li: a(href="#")
+						span.glyphicon.glyphicon-th-large
+					li: a(href="/tag")
+						span.glyphicon.glyphicon-tags
+					li: a(href="/user")
+						span.glyphicon.glyphicon-user
+					li: a(href="#")
+						span.glyphicon.glyphicon-fire
+				form(role="search").navbar-form.navbar-left
+					.form-group 
+						input(type="text", placeholder="Search").form-control
+					button(type="submit").btn.btn-default 
+						span.glyphicon.glyphicon-search
+				ul.nav.navbar-nav.navbar-right
+					li: a(href="#") Register
+					li: a(href="#") Login
+					li: a(href="/about/Bao") About
+		//- end nav bar
+		//- write post button
+		button(type="button", style='float:right; clear:both; border-radius:0').btn.btn-primary
+			span.glyphicon.glyphicon-pencil &nbsp;
+			| Write a post
+		//- List of post
+		.table-responsive
+		table.table.table-hover
+			thead(style='text-align: center')
+				tr
+					th(style='width:5%')
+					th(style='width:50%')
+					th(style='width:10%')
+					th(style='width:10%')
+					th
+			tbody
+				// Single line
+				tr
+					td
+						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
+					td
+						p Dòng 1
+						p Dòng 2
+					td
+						p 20K
+						p VIEWS
+					td(style='border-right:3px solid green')
+						p 20K
+						p COMMENTS
+					td 1
+				// Single line
+				// Single line
+				tr
+					td
+						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
+					td
+						p Dòng 1
+						p Dòng 2
+					td
+						p 20K
+						p VIEWS
+					td(style='border-right:3px solid green')
+						p 20K
+						p COMMENTS
+					td 1
+				// Single line
+				// Single line
+				tr
+					td
+						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
+					td
+						p Dòng 1
+						p Dòng 2
+					td
+						p 20K
+						p VIEWS
+					td(style='border-right:3px solid green')
+						p 20K
+						p COMMENTS
+					td 1
+				// Single line
+				// Single line
+				tr
+					td
+						img.img-responsive(src='images/logo.png', alt='', style='width:50px; height:50px')
+					td
+						p Dòng 1
+						p Dòng 2
+					td
+						p 20K
+						p VIEWS
+					td(style='border-right:3px solid green')
+						p 20K
+						p COMMENTS
+					td 1
+	//- End of main part
+	.col-xs-1.col-sm-1.col-md-1.col-lg-1
+
+	//- Scripting
+	script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/holder/2.3.0/holder.js")

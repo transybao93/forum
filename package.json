@@ -1,0 +1,23 @@
+{
+  "name": "chat2",
+  "version": "1.0.0",
+  "description": "chat testing using jade",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testing",
+    "chat"
+  ],
+  "author": "Tran Sy Bao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "mongoose": "^4.8.5",
+    "pug": "^0.1.0",
+    "socket.io": "^1.7.3",
+    "socketio": "^1.0.0"
+  }
+}
