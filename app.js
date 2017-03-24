@@ -1,6 +1,22 @@
+var config = require(__dirname + '/config/config.js');
 var express = require('express');
-// var router = express.Router();
+var logger = require('morgan');
+var path = require('path');
+var errorHandler = require('errorhandler');
 var app = express();
+//middleware
+app.use(function (req, res) {
+    res.status(404).render('404', {title: 'Not Found :('});
+  });
+//session in express
+var session = require('express-session');
+app.use(session({secret: 'asdadfjfdiuwhr123456789!@#$%^&*('}));
+//boy-parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 //set view engine to pug (Jade template)
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -10,64 +26,11 @@ app.set(express.static(__dirname + '/public'));
 //socket io
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-//mongooose
-var mongoose = require('mongoose');
-var mUsername = 'transybao';
-var mPassword = 'transybao';
-var mDatabase = 'tsbforum';
-var mAddress =  'ds161029.mlab.com:61029';
-var mTempAddress = 'mongodb://127.0.0.1:27017/forum';
-//uistring
- var uristring =
-    process.env.MONGOLAB_URI ||
-    process.env.MONGOHQ_URL ||
-    'mongodb://' + mUsername + ':' + mPassword + '@' + mAddress + '/' + mDatabase;
-    // var app = '--app tsbforum';
-//check connection
-mongoose.connect(mTempAddress, function (err, db) {
-  if (err) {
-    console.log ('ERROR: ' + err);
-  } else {
-    console.log ('Connected to database !');
-  }
-
-});
-
-/**
- * Mongoose Schema
- */
-var postSchema = mongoose.Schema({
-  pTitle: { type: String, trim: true, required: true },
-  pContent: { type: String, trim: true, required: true },
-  pAuthor: { type: String, trim: true, required: true },
-  pViews: {type: Number, default: 0},
-  pTags: {type: String},
-  pCreatedAt: {type: Date},
-  userID: {type: Number, required:true},
-  categoryID: {type: Number, required: true},
-});
-var userSchema = mongoose.Schema({
-  uName: {type: String, max: 100, required:true, trim: true},
-  uEmail: {type: String, required:true, trim: true},
-  uPass: {type: String, max: 100, required:true},
-  registeredAt: {type: Date},
-});
-var categorySchema = mongoose.Schema({
-  cName: {type: String, required: true},
-  cDescription: {type: String, max: 100},
-});
-var tagSchema = mongoose.Schema({
-  tName: {type: String},
-  tDescription: {type: String},
-});
-var Post = mongoose.model('Post', postSchema, 'post');
-var User = mongoose.model('User', userSchema, 'user');
-var Category = mongoose.model('Category', categorySchema, 'category');
-var Tag = mongoose.model('Tag', tagSchema, 'tag');
-// module.exports = Post;
-// module.exports = User;
-// module.exports = Category;
-// module.exports = Tag;
+//model
+var Post = require(__dirname +'/model/Post.js');
+var User = require(__dirname +'/model/User.js');
+var Category = require(__dirname +'/model/Category.js');
+var Tag = require(__dirname +'/model/Tag.js');
 
 //insert some data
 // var post = Post({
@@ -100,6 +63,22 @@ var Tag = mongoose.model('Tag', tagSchema, 'tag');
 // 		console.log('Created new category !');
 // 	}
 // });
+// insert some user
+// var user = new User({
+// 	uName: 'transybao',
+//   uEmail: 'transybao28@gmail.com',
+//   uPass: 'transybao',
+//   registeredAt: new Date(),
+// });
+// user.save(function(err, data){
+// 	if(err)
+// 	{
+// 		console.log('Errors: ' + err);
+// 	}else{
+// 		console.log('Insert new user');
+// 	}
+// });
+
 
 //routing with express
 app.get('/', function (req, res) {  
@@ -126,10 +105,30 @@ app.get('/user', function(req, res){
 app.get('/register', function(req, res){
 	res.render('register');
 });
+app.get('/login', function(req, res){
+	res.render('login');
+});
+app.post('/register2', function(req, res){
+	// console.log(req.body.uName);
+	res.send(req.body.uName);
+});
+app.get('/post/:id', function(req, res){
+	// res.send('id: ' + req.params.id);
+	Post.find({'_id': req.params.id}, function(err,data){
+		if(err)
+		{
+			console.log('Error: ' + err);
+		}else{
+			res.render('post', {'pDetail': data});
+		}
+	});
+	
+});
+
 
 //set port to running apps
-var port = process.env.PORT || 8000;
-app.listen(port, function () {  
+// var port = process.env.PORT || 8000;
+app.listen(config.server.port, function () {  
     console.log('App running on port 8000!')
 });
 

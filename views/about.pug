@@ -1,36 +1,5 @@
-doctype
-<!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
-head
-	//- TODO: Check if it's the good charset
-	meta(charset="utf-8")
-	meta(http-equiv="X-UA-Compatible", content="IE=edge")
-	title 
-	meta(name="description", content="")
-	meta(name="viewport", content="width=device-width,initial-scale=1")
-	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
-	link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
-	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-	<!--[if lt IE 9]>
-	script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
-	script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
-	<![endif]-->
-body
-	//- Add your site or application content here
-	.col-xs-1.col-sm-1.col-md-1.col-lg-1
-	.col-xs-10.col-sm-10.col-md-10.col-lg-10 
-		.panel.panel-default
-			.panel-body
-				| Forum version 2.0 - 
-				| Written by #{authorName}
-				p
-					a(href="/") 
-						span.glyphicon.glyphicon-arrow-left &nbsp;
-						| Home
-	.col-xs-1.col-sm-1.col-md-1.col-lg-1
-
-
-	//- Scripting
-	script(src="https://code.jquery.com/jquery-1.12.4.min.js")
-	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
-	script(src="//cdnjs.cloudflare.com/ajax/libs/holder/2.3.0/holder.js")
+extends template.pug
+block title
+	| About
+block about
+	p This is about page

@@ -1,34 +1,23 @@
-doctype
-<!--[if IE 8]><html class="lt-ie9 no-js"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
-head
-	title Register new account
-	//- TODO: Check if it's the good charset
-	meta(charset="utf-8")
-	meta(http-equiv="X-UA-Compatible", content="IE=edge")
-	title 
-	meta(name="description", content="")
-	meta(name="viewport", content="width=device-width,initial-scale=1")
-	//- TODO : Place favicon.ico and apple-touch-icon.png in the root directory
-	link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
-	// HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-	<!--[if lt IE 9]>
-	script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.0/html5shiv.js")
-	script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
-	<![endif]-->
-body
-	//- Add your site or application content here
-	.col-xs-1.col-sm-1.col-md-1.col-lg-1
-	.col-xs-10.col-sm-10.col-md-10.col-lg-10 
-		.panel.panel-info(style="border-radius:0")
-			.panel-body
-				| Register new account
-		p Register form goes here
-	.col-xs-1.col-sm-1.col-md-1.col-lg-1
-
-
-
-	//- Scripting
-	script(src="https://code.jquery.com/jquery-1.12.4.min.js")
-	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")
-	script(src="//cdnjs.cloudflare.com/ajax/libs/holder/2.3.0/holder.js")
+extends template.pug
+block title
+	| Register
+block register
+	br
+	form(action="/register2", method="POST", role="form")
+		.col-xs-8.col-sm-8.col-md-8.col-lg-8.col-md-offset-2.col-sm-offset-2.col-lg-offset-2.col-xs-offset-2
+			.form-group
+				label(for="username") Username
+				input.form-control(type="text", placeholder="Your name", name="uName", style="border-radius: 0px")
+				label(for="email") Email
+				input.form-control(type="text", placeholder="Your email. Ex: someone@gmail.com", name="email", style="border-radius: 0px")
+				label(for="pass") Password
+				input.form-control(type="password", placeholder="Your password", name="pass", style="border-radius: 0px")
+				label(for="pConfirm") Confirm password
+				input.form-control(type="password", placeholder="Confirm password", name="pConfirm", style="border-radius: 0px")
+			div.btn(style="float:right; margin-right:-12px")
+				button.btn.btn-primary(type="submit", style="border-radius: 0px") 
+					span.glyphicon.glyphicon-ok &nbsp;
+					| Register
+				button.btn.btn-default(type="reset", style="border-radius: 0px") 
+					span.glyphicon.glyphicon-remove &nbsp;
+					| Reset

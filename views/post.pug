@@ -1,0 +1,11 @@
+extends template.pug
+block title
+	| Create new post
+block post
+	br
+	.col-xs-8.col-sm-8.col-md-8.col-lg-8.col-md-offset-2.col-sm-offset-2.col-lg-offset-2.col-xs-offset-2
+		if pDetail
+			each p in pDetail
+				p #{p.pTitle}
+				p #{p.pCreatedAt}
+				p #{p.pAuthor}

@@ -1,0 +1,19 @@
+extends template.pug
+block title
+	| Login
+block login
+	br
+	.col-xs-8.col-sm-8.col-md-8.col-lg-8.col-md-offset-2.col-sm-offset-2.col-lg-offset-2.col-xs-offset-2
+		form(action="/login2", method="POST", role="form")
+				.form-group
+					label(for="username") Email
+					input.form-control(type="text", placeholder="Your email. Ex: someone@gmail.com", name="email", style="border-radius: 0px")
+					label(for="pass") Password
+					input.form-control(type="password", placeholder="Your password...", name="pass", style="border-radius: 0px")
+				div.btn(style="float:right; margin-right:-12px; clear:both")
+					button.btn.btn-primary(type="submit", style="border-radius: 0px") 
+						span.glyphicon.glyphicon-ok &nbsp;
+						| Login
+					button.btn.btn-default(type="reset", style="border-radius: 0px") 
+						span.glyphicon.glyphicon-remove &nbsp;
+						| Reset
