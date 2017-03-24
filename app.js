@@ -6,11 +6,11 @@ var errorHandler = require('errorhandler');
 var app = express();
 //middleware
 app.use(function (req, res) {
-    res.status(404).render('404', {title: 'Not Found :('});
+    res.status(404).render('404', {title: 'Not Found...'});
   });
 //session in express
 var session = require('express-session');
-app.use(session({secret: 'asdadfjfdiuwhr123456789!@#$%^&*('}));
+app.use(session({secret: 'asdadfjfdiuwhrASDFGHJKLERTYUIOXCVBNMRTYUI123456789!@#$%^&*('}));
 //boy-parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
