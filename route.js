@@ -14,9 +14,8 @@ app.use(logger('dev'));
 
 //routing with express
 app.get('/', function (req, res) {  
-
-		POST.showAll(res);
-    
+	// res.render('about');
+	POST.showAll(res);
 });
 app.get('/about/:author', function(req, res){
 	res.render('about', {authorName: req.params.author});
@@ -42,6 +41,18 @@ app.post('/register2', function(req, res){
 });
 app.get('/post/:id', function(req, res){
 	POST.showByID(res,req.params.id);
+});
+
+//new post route
+app.get('/newP', function(req, res){
+	res.render('newPost');
+});
+//get data from user interface
+app.post('/createPost', function(req, res){
+	var title = req.body.pTitle;
+	var content = req.body.pContent;
+	
+	res.send('title: ' + title);
 });
 
 

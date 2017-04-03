@@ -22,7 +22,8 @@ var config = {
 	},
 	production: {
 		server:{
-			port: PORT_PRODUCTION,
+			// port: PORT_PRODUCTION,
+			port: PORT,
 		},
 		database: {
 			url: uristring,
@@ -30,4 +31,4 @@ var config = {
 	},
 	
 };
-module.exports = config[process.env.NODE_ENV] || config.local;
+module.exports = config[process.env.NODE_ENV] || config.production;

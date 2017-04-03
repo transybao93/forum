@@ -1,0 +1,13 @@
+extends template.pug
+block title
+	| Create new post
+block newPost
+	form(action="/createPost", method="POST", role="form")
+		legend Form title
+		.form-group
+			label(for="pTitle") Title
+			input.form-control(type="text", placeholder="Title here", name="pTitle")
+			label(for="pContent") Content
+			input.form-control(type="text", placeholder="Content here", name="pContent")
+		button.btn.btn-primary(type="submit") Post 
+		
