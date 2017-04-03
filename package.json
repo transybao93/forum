@@ -14,6 +14,7 @@
   "author": "Tran Sy Bao",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "easydate": "^2.2.1",
     "errorhandler": "^1.5.0",
     "express": "^4.14.1",
